@@ -6,12 +6,12 @@ sap.ui.define([
 		"sap/ui/model/FilterOperator"
 	], function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
 		"use strict";
-	
+	       
 		return Controller.extend("zproject1.controller.App", {
 				onInit: function () {
 					var oModel = new JSONModel({
 						create : {
-							mandt : '100',
+							mandt : '100',  
 							carrid : '',
 							connid : '',
 							fldate : ''							
@@ -25,7 +25,7 @@ sap.ui.define([
 						it_data2 : [],
 						editMode : false
 					});
-
+   
 					this.getView().setModel(oModel, "main");
 				
 			},
