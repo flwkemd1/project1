@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZGWSAPMART_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZAA_MART" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="prCd"/>
+                </Key>
+                <Property Name="prCd" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="상품군코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItMaster" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT_MASTER" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItItem" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT_ITEM" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItData" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT_DATA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItData2" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT_DATA2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZAA_BUY" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="buyNo"/>
+                    <PropertyRef Name="gdCd"/>
+                    <PropertyRef Name="pltCd"/>
+                </Key>
+                <Property Name="buyNo" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="구매오더번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="gdCd" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="상품코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="pltCd" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="창고코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="itMaster" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT_MASTER" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="itItem" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT_ITEM" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="itData" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT_DATA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="itData2" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT_DATA2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZAA_STK_H" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="mandt"/>
+                    <PropertyRef Name="pltCd"/>
+                    <PropertyRef Name="gdCd"/>
+                </Key>
+                <Property Name="mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="pltCd" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="창고코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="gdCd" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="상품코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="dflag" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="삭제플래그" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="intDat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="생성일자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="intTm" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="생성시간" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="intEmp" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="생성자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="modDat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="수정일자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="modTm" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="수정시간" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="modEmp" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="변경자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="itMaster" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT_MASTER" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="itItem" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT_ITEM" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="itData" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT_DATA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="itData2" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT_DATA2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZAA_SO" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Mandt"/>
+                    <PropertyRef Name="Sono"/>
+                </Key>
+                <Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sono" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="판매오더번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sosta" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="판매오더 상태" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Cuscd" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="고객코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sodat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="판매오더일자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sotm" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="판매오더시간" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Empcd" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="사원 코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Dflag" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="삭제플래그" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Linno" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="라인번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItMaster" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT_MASTER" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItItem" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT_ITEM" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItData" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT_DATA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItData2" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT_DATA2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZGWSAPMART_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZAA_MARTSet" EntityType="ZGWSAPMART_SRV.ZAA_MART" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZAA_BUYSet" EntityType="ZGWSAPMART_SRV.ZAA_BUY" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="zaa_stk_hSet" EntityType="ZGWSAPMART_SRV.ZAA_STK_H" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZAA_SOSet" EntityType="ZGWSAPMART_SRV.ZAA_SO" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="http://106.245.253.60:8001/sap/opu/odata/sap/ZGWSAPMART_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://106.245.253.60:8001/sap/opu/odata/sap/ZGWSAPMART_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

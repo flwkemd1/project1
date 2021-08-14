@@ -1,0 +1,195 @@
+<mvc:View
+		controllerName="zproject1.controller.App"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.m"
+		xmlns:t="sap.ui.table"
+		xmlns:u="sap.ui.unified"
+		xmlns:f="sap.f"
+		xmlns:layout="sap.ui.layout"
+		height="100%">
+		<f:DynamicPage id="dynamicPageId">
+			<!-- DynamicPage Title -->
+			<f:title>
+				<f:DynamicPageTitle>
+					<f:heading>
+						<Title text="Sample"/>
+					</f:heading>
+				</f:DynamicPageTitle>
+			</f:title>
+
+			<!-- DynamicPage Header-->  
+			<f:header>  
+				<f:DynamicPageHeader pinnable="true">
+				<Panel>
+						<Label text="Create 조건" />
+						<FlexBox
+								alignItems="Start"
+								justifyContent="SpaceBetween">
+							<items>
+								<Panel
+										backgroundDesign="Transparent"
+										class="sapUiNoContentPadding">
+									<content>
+										<layout:HorizontalLayout
+												allowWrapping="true">
+											<layout:VerticalLayout
+													class="sapUiMediumMarginEnd">
+												<Label text="Carrid" labelFor="carrid" />
+												<Input
+													id="carrid"
+													placeholder="Enter carrid"
+													value="{main>/create/carrid}">
+												</Input>
+											</layout:VerticalLayout>
+											<layout:VerticalLayout class="sapUiMediumMarginEnd">
+											<Label text="connid" labelFor="connid" />
+												<Input
+													id="connid"
+													placeholder="Enter connid"
+													value="{main>/create/connid}">
+												</Input>
+											</layout:VerticalLayout>
+											<layout:VerticalLayout class="sapUiMediumMarginEnd">
+											<Label text="fldate" labelFor="fldate" />
+											<DatePicker
+												id="DTI1"
+												valueFormat="yyyy-MM-dd"
+												value="{main>/create/fldate}"/>
+											</layout:VerticalLayout>											
+										</layout:HorizontalLayout>
+									</content>
+								</Panel>
+								<Button
+								text="Create"
+								type="Emphasized"
+								press="onCreate"/>
+							</items>
+						</FlexBox>
+						</Panel>
+
+						<Panel>
+						<Label text="조회조건" />
+						<FlexBox
+								alignItems="Start"
+								justifyContent="SpaceBetween">
+							<items>
+								<Panel
+										backgroundDesign="Transparent"
+										class="sapUiNoContentPadding">
+									<content>
+										<layout:HorizontalLayout
+												allowWrapping="true">
+											<layout:VerticalLayout
+													class="sapUiMediumMarginEnd">
+												<Label text="filter Carrid" labelFor="fcarrid" />
+												<Input
+													id="fcarrid"
+													placeholder="filter carrid"
+													value="{main>/filter/carrid}">
+												</Input>
+											</layout:VerticalLayout>
+											<layout:VerticalLayout class="sapUiMediumMarginEnd">
+											<Label text="filter connid" labelFor="fconnid" />
+												<Input
+													id="fconnid"
+													placeholder="filter connid"
+													value="{main>/filter/connid}">
+												</Input>
+											</layout:VerticalLayout>
+											<layout:VerticalLayout class="sapUiMediumMarginEnd">
+											<Label text="filter fldate" labelFor="ffldate" />
+												<Input
+													id="ffldate"
+													placeholder="filter fldate"
+													value="{main>/filter/fldate}">
+												</Input>
+											</layout:VerticalLayout>											
+										</layout:HorizontalLayout>
+									</content>
+								</Panel>
+								<Button
+								text="Search"
+								type="Emphasized"
+								press="onSearch"/>
+							</items>
+						</FlexBox>				
+								
+						</Panel>
+				</f:DynamicPageHeader>
+			</f:header>
+
+			<f:content>
+				<t:Table
+						id="table"
+						rows="{main>/it_data}"
+						selectionMode="MultiToggle">
+					<t:extension>
+						<OverflowToolbar style="Clear">
+							<Title text="FLIGHT"/>
+				    	<ToolbarSpacer/>
+								<Button
+								icon="sap-icon://add"
+								press="onAdd"/>
+								<Button
+								icon="sap-icon://less"
+								press="onDelete"/>
+								<Button
+								text="Edit"
+								press="onEdit"/>
+								<Button
+								text="Save"
+								press="onSave"/>
+								<Button
+								text="SelectedDelete"
+								press="onSelectedDelete"/>
+						</OverflowToolbar>
+					</t:extension>
+					<t:columns>
+						<t:Column width="11rem">
+							<Label text="Carrid" />
+							<t:template>
+								<Input value="{main>carrid}" editable ="{main>/editMode}" />
+							</t:template>
+						</t:Column>
+						<t:Column width="11rem">
+							<Label text="Connid" />
+							<t:template>
+								<Input value="{main>connid}" editable ="{main>/editMode}"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="11rem" hAlign="End">
+							<Label text="FLDATE" />
+							<t:template>
+								<DatePicker
+									id="DTI2"
+									valueFormat="yyyy-MM-dd"
+									value="{main>fldate}"
+									editable ="{main>/editMode}"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="11rem">
+							<Label text="Price" />
+							<t:template>
+								<Input value="{
+									path: 'main>price'
+								}"
+								editable ="{main>/editMode}" />
+								<!-- <u:Currency value="{main>price}" currency="{main>currency}"/> -->
+							</t:template>
+						</t:Column>
+						<t:Column width="11rem">
+							<Label text="PLANETYPE" />
+							<t:template>
+								<Input value="{main>planetype}" editable ="{main>/editMode}"/>
+							</t:template>
+						</t:Column>					
+					</t:columns>
+				</t:Table>
+			</f:content>
+			<!-- DynamicPage Footer -->
+			<f:footer>
+
+			</f:footer>
+		</f:DynamicPage>
+</mvc:View>
+
